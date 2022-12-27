@@ -39,11 +39,11 @@
 </head>
 <body>
 <input id="new" placeholder="Enter a text">
-<ul>
-	  <li class="listtype">Hello Everyone</li>
-	<li class="listtype">Good Morning</li>  
-</ul>
-<button onclick="todo()">submit</button>
+	<ul>
+		<li class="listtype">Hello Everyone</li>
+		<li class="listtype">Good Morning</li>  
+	</ul>
+<button onclick="todo()">Submit</button>
 <script type="text/javascript">
 	function todo(){
 		let Todo=document.getElementById("new").value,todolist=[]
@@ -60,10 +60,11 @@
 		document.getElementById("new").value=""
 	}
 	function add(newvalue){
+		const d=new Date()
 		let ul=document.querySelector("ul")
 		console.log(ul)
 		let li=document.createElement("li");
-		li.innerHTML=`<span>${newvalue}</span>
+	    li.innerHTML=`<span>${newvalue} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}</span>
 		<i class="fa-solid fa-rectangle-xmark"></i>`
 		li.classList.add("listtype")
 		ul.appendChild(li)
